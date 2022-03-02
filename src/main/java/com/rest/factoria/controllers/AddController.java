@@ -7,10 +7,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 public class AddController {
+    private static int totalValue=1;
+
 
     @GetMapping("hello")
-    public String Hello(){
-        return "Hello";
+    public String Hello(String name, int age){
+        return "Hello " + name + " you have " + age + " years";
+    }
+
+    @GetMapping("total")
+    public int TotalValue (){
+        return totalValue;
+    }
+
+    @PostMapping("add")
+    public int ValueToAdd(int valueToAdd){
+        return totalValue += valueToAdd;
     }
 
 }
